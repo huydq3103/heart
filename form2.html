@@ -22,7 +22,7 @@
   
   <div class="formgroup" id="email-form">
       <label for="email" >Làm người yêu mình nhé =))</label>
-      <input type="text" id="email" name="email" value="đồng ý" />
+      <input type="text" id="email" name="email" value="" />
       <span id="textemail"></span>
   </div>
   
@@ -74,10 +74,15 @@
                     showErrName(textemail1,"Quên chưa nhập kia cậu ơi.....")
                   }else if(textemail1.value !== "đồng ý"){
                     errEmail = true;
-                    showErrName(textemail1,"Vui lòng đồng ý để tiếp tục :))")
+                    alert("Vui lòng đồng ý để tiếp tục :))")
+                    showErrName(textemail1,'đồng ý')
+                    
                   }
                   else{
                        showSuccess(textemail1)
+                       alert("mình cũng đồng ý :)))")
+                       alert("Mình có quà tặng cậu nè")
+                       
                   }
                   return errEmail;
          }
