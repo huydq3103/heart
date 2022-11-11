@@ -1,6 +1,10 @@
 <header>
-    <h1>Check in bên dưới nhé bb <span>❤</span></h1>
+    <h1>Xin chào tình iu <span>❤</span></h1>
     <link rel="stylesheet" href="form2.css">
+    <title>Document </title>
+  <style>
+    
+  </style>
   </header>
 <body >
   <div id="form" >
@@ -8,25 +12,114 @@
   <div class="fish" id="fish"></div>
   <div class="fish" id="fish2"></div>
   
-  <form id="waterform" method="get"  action="heart.html">
+  <form  id="waterform" method="get" action="heart.html" onsubmit="return kiemtra()">
   
   <div class="formgroup" id="name-form">
-      <label for="name">Your name</label>
+      <label for="name">Your name </label>
       <input type="text" id="name" name="name" />
-      <span id="bug"></span>
+      <span id="ten"></span>
   </div>
   
   <div class="formgroup" id="email-form">
       <label for="email" >Làm người yêu mình nhé =))</label>
-      <input type="text" id="email" name="email" value="" />
-      <span id="bug"></span>
+      <input type="text" id="email" name="email" value="đồng ý" />
+      <span id="textemail"></span>
   </div>
   
   
     <input type="submit" value="Send your message!" />
 </form>
+<script>
+          
+ 
+          function kiemtra(){
+          
+          var name1 = document.querySelector('#name');
+          var textemail1 = document.querySelector('#email');
+           var form = document.querySelector('form');
+          
+        function showErrName(input,message){ // hien lỗi
+             let parent =  input.parentElement // xác định đầu vào 
+             let span =  parent.querySelector('span')
+                 parent.classList.add("err")
+                 span.innerText=message
+        }
+        
+        // hiển thị lỗi
+        
+        function showSuccess(input){ // hien thi khi ko loi
+             let parent =  input.parentElement // xác định đầu vào 
+             let span =  parent.querySelector('span')
+                 parent.classList.remove("err")
+                 span.innerText=''
+        }
+        
+         function checkEmpty(){ // check trông name
+          let errEmpty = false;
+                  name1.value = name1.value.trim();
+                  if(name1.value==""){
+                    errEmpty = true;
+                    showErrName(name1,"Quên chưa nhập tên kìa cậu gì ơi....")
+                  }else{
+                       showSuccess(name1)
+                  }
+              return errEmpty;
+         }
+        
+         function checkEmptyEmail(){ // kiẻm tra có giá trị đồng ý hay ko
+          let errEmail = false;
+                  textemail1.value = textemail1.value.trim();
+                  if(textemail1.value==""){
+                    errEmail = true;
+                    showErrName(textemail1,"Quên chưa nhập kia cậu ơi.....")
+                  }else if(textemail1.value !== "đồng ý"){
+                    errEmail = true;
+                    showErrName(textemail1,"Vui lòng đồng ý để tiếp tục :))")
+                  }
+                  else{
+                       showSuccess(textemail1)
+                  }
+                  return errEmail;
+         }
+        
+        
+         let errEmpty = checkEmpty()
+          let errEmail = checkEmptyEmail()
+        
+          if(errEmpty || errEmail ) { // khi 1 trong 2 sai thif trả về lỗi
+               return false;
+              }else{
+                   return true; // ngược lại cho phép qua form heart.html
+              }
+
+
+     /* form.addEventListener('submit',function(e){
+        e.preventDefault()
+       let errEmpty = checkEmpty()
+        let errEmail = checkEmptyEmail()
+        
+          if(errEmpty || errEmail ) {
+               
+              }else{
+               
+              }
   
+
       
+  });
+  
+*/
+      
+
+             
+          
+        }
+
+ 
+
+
+ 
+</script>
 </body>
 
   </div>
